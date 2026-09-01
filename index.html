@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proof Chain</title>
+  <meta name="description" content="Proof Chain — cryptographic proof of physical presence. Support, privacy policy and terms of service.">
+  <link rel="canonical" href="https://proof.parkinsad.com/">
+  <link rel="icon" href="/icon.png">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f9f9f9;
+      --fg: #1a1a1a;
+      --muted: #666;
+      --line: #e4e4e4;
+      --card: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #111; --fg: #f2f2f2; --muted: #9a9a9a; --line: #2a2a2a; --card: #1a1a1a; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 3rem 1.25rem;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.55;
+      display: flex;
+      justify-content: center;
+    }
+    .wrap { width: 100%; max-width: 34rem; }
+    img.logo { width: 68px; height: 68px; border-radius: 15px; display: block; }
+    h1 { font-size: 1.55rem; margin: 1.25rem 0 .35rem; letter-spacing: -.01em; }
+    p.tag { color: var(--muted); margin: 0 0 2.25rem; }
+    nav { display: grid; gap: .6rem; }
+    a.item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: .95rem 1.15rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      text-decoration: none;
+      color: inherit;
+      font-size: .95rem;
+    }
+    a.item:hover { border-color: var(--muted); }
+    a.item span.arrow { color: var(--muted); }
+    footer { margin-top: 2.5rem; font-size: .8rem; color: var(--muted); }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="/icon.png" alt="Proof Chain icon">
+    <h1>Proof Chain</h1>
+    <p class="tag">Cryptographic proof of physical presence.</p>
+
+    <nav>
+      <a class="item" href="/help">Help &amp; Support <span class="arrow">&rarr;</span></a>
+      <a class="item" href="/privacy-policy">Privacy Policy <span class="arrow">&rarr;</span></a>
+      <a class="item" href="/terms-of-service">Terms of Service <span class="arrow">&rarr;</span></a>
+      <a class="item" href="https://proofapp.site">Main site <span class="arrow">&rarr;</span></a>
+    </nav>
+
+    <footer>
+      Questions? <a href="mailto:hi@proofapp.site">hi@proofapp.site</a><br>
+      Proof Chain is a product of Parkinsad.
+    </footer>
+  </div>
+</body>
+</html>

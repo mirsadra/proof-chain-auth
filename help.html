@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help &amp; Support — Proof Chain</title>
+  <meta name="description" content="Help and support for Proof Chain — scanning, visits, subscriptions and account questions.">
+  <link rel="canonical" href="https://proof.parkinsad.com/help">
+  <link rel="icon" href="/icon.png">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f9f9f9;
+      --fg: #1a1a1a;
+      --muted: #666;
+      --line: #e4e4e4;
+      --card: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #111; --fg: #f2f2f2; --muted: #9a9a9a; --line: #2a2a2a; --card: #1a1a1a; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 3rem 1.25rem;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+    }
+    .wrap { width: 100%; max-width: 36rem; }
+    a.back { color: var(--muted); text-decoration: none; font-size: .875rem; }
+    h1 { font-size: 1.6rem; margin: 1rem 0 2rem; letter-spacing: -.01em; }
+    h2 { font-size: 1.05rem; margin: 2.25rem 0 .5rem; }
+    p { margin: .5rem 0; }
+    details {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: .85rem 1.15rem;
+      margin-bottom: .6rem;
+    }
+    summary { cursor: pointer; font-weight: 600; font-size: .95rem; }
+    details p { color: var(--muted); font-size: .92rem; }
+    .contact {
+      margin-top: 2.5rem;
+      padding: 1.15rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+    }
+    footer { margin-top: 2.5rem; font-size: .8rem; color: var(--muted); }
+    a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="/">&larr; Proof Chain</a>
+    <h1>Help &amp; Support</h1>
+
+    <h2>Visits &amp; scanning</h2>
+
+    <details>
+      <summary>The QR code won't scan</summary>
+      <p>Make sure the whole code is inside the camera frame and reasonably lit. If the
+      business has just rotated its verification word, ask them to display the current
+      code — Proof Chain rejects codes signed with an expired word.</p>
+    </details>
+
+    <details>
+      <summary>My visit wasn't recorded</summary>
+      <p>Visits are written to your device first, so they appear even without a
+      connection. If a visit is missing, check that you completed the scan through to the
+      confirmation screen. Repeated scans at the same business within the rate-limit
+      window are intentionally rejected.</p>
+    </details>
+
+    <details>
+      <summary>Do I need an account to use Proof Chain?</summary>
+      <p>No. Customers are fully anonymous — there is no sign-up, and your visit history
+      stays on your device. Accounts exist only for business owners who manage a
+      business and its analytics.</p>
+    </details>
+
+    <h2>Business accounts</h2>
+
+    <details>
+      <summary>I can't sign in</summary>
+      <p>Confirm your email address is verified — check your inbox for the confirmation
+      link, including the spam folder. If you signed up with Apple or Google, use that
+      same button rather than a password. You can request a fresh password reset link
+      from the sign-in screen at any time.</p>
+    </details>
+
+    <details>
+      <summary>The password reset link doesn't open the app</summary>
+      <p>Open the link on the iPhone or iPad where Proof Chain is installed, and make
+      sure the app is up to date. Tapping the link from a desktop browser will show a
+      confirmation page but cannot hand the session back to the app.</p>
+    </details>
+
+    <h2>Subscriptions</h2>
+
+    <details>
+      <summary>Restoring a purchase</summary>
+      <p>Open the app, go to the subscription screen and tap <em>Restore Purchases</em>.
+      Purchases are tied to the Apple Account that bought them, so use the same one.</p>
+    </details>
+
+    <details>
+      <summary>Managing or cancelling</summary>
+      <p>Subscriptions are billed by Apple. Manage or cancel them in the Settings app
+      under your name &rarr; Subscriptions. Cancelling stops the renewal; access
+      continues until the end of the paid period.</p>
+    </details>
+
+    <div class="contact">
+      <strong>Still stuck?</strong>
+      <p>Email <a href="mailto:hi@proofapp.site">hi@proofapp.site</a> and include your
+      device model, iOS version and the app version from Settings. We read every
+      message.</p>
+    </div>
+
+    <footer>
+      <a href="/privacy-policy">Privacy Policy</a> &middot;
+      <a href="/terms-of-service">Terms of Service</a>
+    </footer>
+  </div>
+</body>
+</html>
