@@ -1,0 +1,83 @@
+/* ──────────────────────────────────────────────────────────────
+   Proof Chain animated mark
+
+   Six bars radiating at 60° intervals, each pulsing on a 1.5s loop
+   with a staggered delay so the pulse chases around the star. This
+   is the same mark used at the top of the transactional emails
+   (Supabase → Auth → Email Templates); keep the two in sync.
+
+   Usage — size and colour are inherited, so it works on any ground:
+
+     <span class="proof-mark" style="--proof-mark-size:68px" aria-hidden="true">
+       <span><i></i></span><span><i></i></span><span><i></i></span>
+       <span><i></i></span><span><i></i></span><span><i></i></span>
+     </span>
+
+   The nested <span><i></i></span> is deliberate: the outer element
+   owns the rotation and the inner one owns the scaleY pulse. Both
+   are transforms, so they cannot live on the same element.
+   ────────────────────────────────────────────────────────────── */
+
+.proof-mark {
+  --proof-mark-size: 80px;
+  --proof-mark-bar: calc(var(--proof-mark-size) / 20);
+  position: relative;
+  display: inline-block;
+  width: var(--proof-mark-size);
+  height: var(--proof-mark-size);
+  flex: none;
+  color: inherit;
+}
+
+.proof-mark > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.proof-mark > span > i {
+  position: absolute;
+  top: calc(var(--proof-mark-size) / -4);
+  left: calc(var(--proof-mark-bar) / -2);
+  width: var(--proof-mark-bar);
+  height: calc(var(--proof-mark-size) / 2);
+  border-radius: var(--proof-mark-bar);
+  /* Fallback first, then the closer match to the email's 30% tail. */
+  background: linear-gradient(to bottom, currentColor, transparent);
+  background: linear-gradient(
+    to bottom,
+    currentColor,
+    color-mix(in srgb, currentColor 30%, transparent)
+  );
+  animation: proof-mark-pulse 1.5s ease-in-out infinite;
+}
+
+.proof-mark > span:nth-child(1) { transform: rotate(0deg); }
+.proof-mark > span:nth-child(2) { transform: rotate(60deg); }
+.proof-mark > span:nth-child(3) { transform: rotate(120deg); }
+.proof-mark > span:nth-child(4) { transform: rotate(180deg); }
+.proof-mark > span:nth-child(5) { transform: rotate(240deg); }
+.proof-mark > span:nth-child(6) { transform: rotate(300deg); }
+
+.proof-mark > span:nth-child(1) > i { animation-delay: 0s; }
+.proof-mark > span:nth-child(2) > i { animation-delay: 0.25s; }
+.proof-mark > span:nth-child(3) > i { animation-delay: 0.5s; }
+.proof-mark > span:nth-child(4) > i { animation-delay: 0.75s; }
+.proof-mark > span:nth-child(5) > i { animation-delay: 1s; }
+.proof-mark > span:nth-child(6) > i { animation-delay: 1.25s; }
+
+@keyframes proof-mark-pulse {
+  0%, 100% { transform: scaleY(0.3); opacity: 0.4; }
+  50%      { transform: scaleY(1);   opacity: 1; }
+}
+
+/* Hold the star at rest rather than looping forever. */
+@media (prefers-reduced-motion: reduce) {
+  .proof-mark > span > i {
+    animation: none;
+    transform: scaleY(0.85);
+    opacity: 0.85;
+  }
+}

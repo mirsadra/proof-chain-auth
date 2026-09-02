@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proof Chain – Authentication</title>
   <style>
+    /* The mark is inlined rather than pulled from /proof-mark.css on purpose:
+       this is the page the confirmation link lands on, so it must render with
+       no external request. Keep it in sync with /proof-mark.css. */
     body {
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       display: flex;
@@ -22,10 +25,61 @@
     }
     h1 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
     p  { font-size: 0.9rem; color: #666; line-height: 1.5; }
+
+    .proof-mark {
+      --proof-mark-size: 64px;
+      --proof-mark-bar: calc(var(--proof-mark-size) / 20);
+      position: relative;
+      display: inline-block;
+      width: var(--proof-mark-size);
+      height: var(--proof-mark-size);
+      margin-bottom: 1.25rem;
+      color: #111;
+    }
+    .proof-mark > span { position: absolute; top: 50%; left: 50%; width: 0; height: 0; }
+    .proof-mark > span > i {
+      position: absolute;
+      top: calc(var(--proof-mark-size) / -4);
+      left: calc(var(--proof-mark-bar) / -2);
+      width: var(--proof-mark-bar);
+      height: calc(var(--proof-mark-size) / 2);
+      border-radius: var(--proof-mark-bar);
+      background: linear-gradient(to bottom, currentColor, transparent);
+      background: linear-gradient(to bottom, currentColor, color-mix(in srgb, currentColor 30%, transparent));
+      animation: proof-mark-pulse 1.5s ease-in-out infinite;
+    }
+    .proof-mark > span:nth-child(1) { transform: rotate(0deg); }
+    .proof-mark > span:nth-child(2) { transform: rotate(60deg); }
+    .proof-mark > span:nth-child(3) { transform: rotate(120deg); }
+    .proof-mark > span:nth-child(4) { transform: rotate(180deg); }
+    .proof-mark > span:nth-child(5) { transform: rotate(240deg); }
+    .proof-mark > span:nth-child(6) { transform: rotate(300deg); }
+    .proof-mark > span:nth-child(1) > i { animation-delay: 0s; }
+    .proof-mark > span:nth-child(2) > i { animation-delay: 0.25s; }
+    .proof-mark > span:nth-child(3) > i { animation-delay: 0.5s; }
+    .proof-mark > span:nth-child(4) > i { animation-delay: 0.75s; }
+    .proof-mark > span:nth-child(5) > i { animation-delay: 1s; }
+    .proof-mark > span:nth-child(6) > i { animation-delay: 1.25s; }
+    @keyframes proof-mark-pulse {
+      0%, 100% { transform: scaleY(0.3); opacity: 0.4; }
+      50%      { transform: scaleY(1);   opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .proof-mark > span > i { animation: none; transform: scaleY(0.85); opacity: 0.85; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body { background: #111; color: #f2f2f2; }
+      p { color: #9a9a9a; }
+      .proof-mark { color: #f2f2f2; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <span class="proof-mark" role="img" aria-label="Proof Chain">
+      <span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span>
+    </span>
     <h1>Authentication Complete</h1>
     <p>You can return to the Proof Chain app now. This page can be closed.</p>
   </div>

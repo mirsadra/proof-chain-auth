@@ -7,6 +7,7 @@
   <meta name="description" content="Proof Chain — cryptographic proof of physical presence. Support, privacy policy and terms of service.">
   <link rel="canonical" href="https://proof.parkinsad.com/">
   <link rel="icon" href="/icon.png">
+  <link rel="stylesheet" href="/proof-mark.css">
   <style>
     :root {
       color-scheme: light dark;
@@ -31,7 +32,7 @@
       justify-content: center;
     }
     .wrap { width: 100%; max-width: 34rem; }
-    img.logo { width: 68px; height: 68px; border-radius: 15px; display: block; }
+    .logo { display: block; margin-bottom: .25rem; }
     h1 { font-size: 1.55rem; margin: 1.25rem 0 .35rem; letter-spacing: -.01em; }
     p.tag { color: var(--muted); margin: 0 0 2.25rem; }
     nav { display: grid; gap: .6rem; }
@@ -56,7 +57,7 @@
 </head>
 <body>
   <div class="wrap">
-    <img class="logo" src="/icon.png" alt="Proof Chain icon">
+    <span class="proof-mark logo" style="--proof-mark-size:68px" role="img" aria-label="Proof Chain"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></span>
     <h1>Proof Chain</h1>
     <p class="tag">Cryptographic proof of physical presence.</p>
 
